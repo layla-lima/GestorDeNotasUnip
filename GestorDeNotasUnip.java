@@ -16,16 +16,25 @@ public class GestorDeNotasUnip {
         // Calcula a média
         double notaFinal = (nota1 + nota2) / 2;
 
-        System.out.println("Média das provas: " + notaFinal);
         System.out.println("Você tem nota do PIM? (s/n)");
 
         // Corrigindo a verificação da resposta do usuário
         String resposta1 = sc.next();
 
         if (resposta1.equalsIgnoreCase("s")) {
-            System.out.println("A CONFIGURAR");
+            System.out.print("Digite a nota do PIM: ");
+            double notaPIM = sc.nextDouble();
+            double notaFinalSemestre = (notaFinal + notaPIM) / 2;
+            if (notaFinalSemestre <= 6) {
+                System.out.println("Nota final:" + notaFinalSemestre);
+                System.out.println("Necessidade de Exame: Sim");
+            }
+            else {
+                System.out.println("Nota final:" + notaFinalSemestre);
+                System.out.println("Necessidade de Exame: Não");
+            }
         } else if (resposta1.equalsIgnoreCase("n")) {
-            System.out.println("Entendido!");
+            System.out.println("Média das provas: " + notaFinal);
         }
         sc.close();
     }
